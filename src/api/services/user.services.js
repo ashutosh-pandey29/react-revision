@@ -5,7 +5,7 @@ export const fetchAllUser = async () => {
     const response = await axiosInstance.get("/users");
     return response;
   } catch (error) {
-    console.log(error);
-    // return null;
+    // console.log(error);
+    throw error;
   }
 };

@@ -1,26 +1,20 @@
 import React, { useEffect } from "react";
 import { fetchAllUser } from "./api/services/user.services";
 import { Toaster } from "sonner";
+import List from "./components/List";
 
 export default function App() {
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const response = await fetchAllUser();
-        console.log(response);
-      } catch (error) {
-        return null;
-      }
-    };
-
-    fetchUser();
-  }, []);
+ 
   return (
     <>
       {/* add sonner for displaying message pop-up */}
       <Toaster richColors position="top-right" />
 
-      <h1>Revision </h1>
+      <h1>Revision - M.E.R.N STACK </h1>
+      <hr />
+      
+
+      <List/>
     </>
   );
 }

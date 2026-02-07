@@ -4,7 +4,7 @@ import axios from "axios";
 
 const axiosInstance = axios.create({
   baseURL: "https://jsonplaceholder.typicode.com",
-  // timeout: 5000, // 5 sec
+  timeout: 10000, // 10 sec
   headers: {
     "Content-Type": "application/json",
   },
