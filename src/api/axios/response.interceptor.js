@@ -1,13 +1,26 @@
-import axiosInstance from "./axios";
+import { toast } from "sonner";
+import axiosInstance from "./axiosInstance";
 
 // response and error handling setup
 
 axiosInstance.interceptors.response.use(
-  (response) => response,
+  (response) => {
+    // console.log("INTERCEPTOR HIT 🔥");
+    return response.data;
+  },
   (error) => {
+    let message = "Something went wrong. Please try again later.";
+
+    // console.log("INTERCEPTOR HIT 🔥");
+
     if (error.response) {
-      console.log(error);
+      message = error.response.data?.message || message;
+    } else if (error.request) {
+      message = "Server not reachable. Please try again later.";
     }
+    // console.log(message);
+    toast.error(message);
+
     return Promise.reject(error);
   }
 );
